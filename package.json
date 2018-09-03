@@ -1,0 +1,13 @@
+{
+  "name": "rwserve-mail",
+  "version": "1.0.0",
+  "description": "RWSERVE plugin for nodemailer",
+  "private": true,
+  "author": "Read Write Tools",
+  "license": "see license in license.html",
+  "scripts": {
+    "bump-version": "npm version patch && git push && git push --tags"
+  },
+  "dependencies": {
+  }
+}
