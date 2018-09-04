@@ -52,7 +52,7 @@ const log = require('/usr/lib/node_modules/rwserve/dist/log.class');
 const SC = require('/usr/lib/node_modules/rwserve/dist/enum/http-status-code.enum');
 const nodemailer = require('nodemailer');
 
-export default class RwserveNodemailer {
+module.exports = class RwserveNodemailer {
 
 	constructor(hostConfig) {
 		this.hostConfig             = hostConfig;
