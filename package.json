@@ -1,14 +1,34 @@
 {
-  "name": "rwserve-mail",
+  "name": "rwserve-nodemailer",
   "version": "1.0.0",
-  "description": "RWSERVE plugin for nodemailer",
-  "private": true,
+  "description": "RWSERVE plugin to send an automated confirmation email",
   "author": "Read Write Tools",
-  "license": "see license in license.html",
-  "scripts": {
-    "bump-version": "npm version patch && git push && git push --tags"
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/readwritetools/rwserve-nodemailer.git"
   },
   "dependencies": {
-    "nodemailer": "^4.6.8"
-  }
+    "nodemailer": "^4.6.8",
+    "rwserve-plugin-sdk": "^1.0.1"
+  },
+  "scripts": {
+    "bump-version": "npm version patch && git push && git push --tags",
+    "start": "rwserve ./etc/nodemailer-config"
+  },
+  "keywords": [
+    "rwserve",
+    "http2",
+    "plugins"
+  ],
+  "bugs": {
+    "url": "https://github.com/readwritetools/rwserve-nodemailer/issues"
+  },
+  "homepage": "https://rwserve.readwritetools.com/plugins/rwserve-nodemailer.blue",
+  "files": [
+    "dist",
+    "etc",
+    "img"
+  ]
 }

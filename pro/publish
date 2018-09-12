@@ -1,19 +1,23 @@
 !blue 2.0
 //=============================================================================
 //
-// File:         rwserve-nodemailer/pro/prepare
+// File:         rwserve-nodemailer/pro/publish
 // Language:     prorenata script
 // Copyright:    Read Write Tools © 2018
 // License:      MIT License
 // Initial date: Sep 3, 2018
-// Contents:     Install/refresh node dependencies 
+// Contents:     Publish to NPM
 //
 //=============================================================================
 
-// ---------- install node module dependencies ---------- 
+
+// ---------- check make sure repo has no uncommited work ---------- 
 run {
-	sh git pull origin master
-	sh git pull github master
-	sh npm install rwserve-plugin-sdk
-	sh npm install nodemailer
+	sh git diff-index --quiet HEAD
+}
+
+
+// ----------------------- publish to NPM  ------------------------- 
+run {
+	sh npm publish ../
 }
