@@ -113,14 +113,14 @@ body with content-type `application/json`. The returned JSON payload contains:
 
 #### Sample HTML
 
-`<pre>
-<form action='https://localhost:7443/customer-service/signup' method=POST>
+<pre>
+lang=html<form action='https://localhost:7443/customer-service/signup' method=POST>
     <label>Email address <input type=text name=recipient /></label>
     <input type=submit value=Submit />
 </form>
 </pre>
 
-`#### CURL Test
+#### CURL Test
 
 You can also use CURL to send a request to the plugin like this:
 
