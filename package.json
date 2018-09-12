@@ -1,6 +1,6 @@
 {
   "name": "rwserve-nodemailer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "RWSERVE plugin to send an automated confirmation email",
   "author": "Read Write Tools",
   "license": "MIT",
