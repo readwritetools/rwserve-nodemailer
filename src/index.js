@@ -69,7 +69,7 @@ export default class RwserveNodemailer {
 	}
 	
 	async startup() {
-		log.debug('RwserveNodemailer', 'v1.0.0; © 2018 Read Write Tools; MIT License'); 
+		log.debug('RwserveNodemailer', `version ${this.nodemailerConfig.pluginVersion}; © 2018 Read Write Tools; MIT License`); 
 		
 		var transportOptions = {	
 				host: 				this.transportConfig.host 				|| 'localhost',
