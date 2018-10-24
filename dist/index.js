@@ -48,7 +48,7 @@
 */
 //====================== Sample CURL for testing  =============================
 //
-// curl https://localhost:7443/customer-service/signup -X POST -H content-type:application/x-www-form-urlencoded -H content-length:33 -d "recipient=friendly@mailinator.com"
+// curl https://localhost:7443/customer-service/signup -X POST -H content-type:application/x-www-form-urlencoded -H content-length:33 -d "recipient=friendly@mailinator.com" -k
 //
 //=============================================================================
 
@@ -69,7 +69,7 @@ module.exports = class RwserveNodemailer {
 	}
 	
 	async startup() {
-		log.debug('RwserveNodemailer', 'v1.0.0; © 2018 Read Write Tools; MIT License'); 
+		log.debug('RwserveNodemailer', `version ${this.nodemailerConfig.pluginVersion}; © 2018 Read Write Tools; MIT License`); 
 		
 		var transportOptions = {	
 				host: 				this.transportConfig.host 				|| 'localhost',
@@ -114,14 +114,14 @@ module.exports = class RwserveNodemailer {
 			if (workOrder.getMethod() != 'POST')
 				return;
 			
-			// validate headers and payload
+			// validate headers and request body
 			var contentType = workOrder.requestHeaders['content-type'];
 			if (workOrder.requestHeaders['content-type'] != 'application/x-www-form-urlencoded')
 				throw new Error(`content-type header should be application/x-www-form-urlencoded but was ${contentType}`);
 				
-			var formData = workOrder.incomingPayload;
+			var formData = workOrder.getRequestBody();
 			if (formData == '')
-				throw new Error(`empty payload`);
+				throw new Error(`empty request body`);
 
 			var kvpairs = new Map();
 			var parts = formData.split('&');
@@ -130,7 +130,7 @@ module.exports = class RwserveNodemailer {
 				kvpairs.set(key, decodeURIComponent(value));
 			}
 			if (!kvpairs.has('recipient'))
-				throw new Error(`Payload missing 'recipient'`);
+				throw new Error(`Request body missing 'recipient'`);
 
 			// prepare and send mail to specified recipient
 			var mailOptions = {
@@ -142,7 +142,7 @@ module.exports = class RwserveNodemailer {
 			// HTTP response code is 200; SMTP reply code is in "nodemailer-smtp-reply"; details are in the response body
 			var smtpReplyCode = smtpJSON.response.substr(0,3);
 			var smtpString = JSON.stringify(smtpJSON, null, 4);
-			workOrder.setOutgoingPayload(smtpString);
+			workOrder.setResponseBody(smtpString);
 			workOrder.addStdHeader('content-type', 'application/json');
 			workOrder.addStdHeader('nodemailer-smtp-reply', smtpReplyCode);
 			workOrder.setStatusCode(SC.OK_200);
@@ -150,7 +150,7 @@ module.exports = class RwserveNodemailer {
 		}
 		catch (err) {
 			workOrder.addXHeader('rw-nodemailer', 'failed', err.message, SC.BAD_REQUEST_400);
-			workOrder.setEmptyPayload();
+			workOrder.setEmptyResponseBody();
 		}
 	}
 }
