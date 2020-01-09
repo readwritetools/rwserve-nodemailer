@@ -22,7 +22,8 @@
     "http2",
     "plugins",
     "email",
-    "nodemailer"
+    "nodemailer",
+    "readwritetools"
   ],
   "bugs": {
     "url": "https://github.com/readwritetools/rwserve-nodemailer/issues"
