@@ -10,8 +10,8 @@
     "url": "https://github.com/readwritetools/rwserve-nodemailer.git"
   },
   "dependencies": {
-    "nodemailer": "^4.6.8",
-    "rwserve-plugin-sdk": "^1.0.3"
+    "nodemailer": "^4.7.0",
+    "rwserve-plugin-sdk": "^1.0.7"
   },
   "scripts": {
     "bump-version": "npm version patch && git push && git push --tags",
