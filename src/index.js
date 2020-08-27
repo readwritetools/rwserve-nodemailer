@@ -23,7 +23,7 @@
 /*
 	plugins {
 		rwserve-nodemailer {
-			location `/srv/rwserve-plugins/node_modules/rwserve-nodemailer/dist/index.js
+			location `/srv/rwserve-plugins/node_modules/rwserve-nodemailer/dist/index.js`
 			config {
 				transport {
 					host 	    127.0.0.1    // SMTP server address
