@@ -6,10 +6,17 @@
 
 
 
+
+
+
+
+
 <figure>
 	<img src='/img/plugins/nodemailer/nodemailer-pixaby-muhammad-ribkhan.png' width='100%' />
 	<figcaption></figcaption>
 </figure>
+
+##### Open Source RWSERVE plugin
 
 # Nodemailer
 
@@ -17,7 +24,7 @@
 
 
 <address>
-<img src='/img/rwtools.png' width=80 /> by <a href='https://readwritetools.com' title='Read Write Tools'>Read Write Tools</a> <time datetime=2018-10-24>Oct 24, 1028</time></address>
+<img src='/img/48x48/rwtools.png' /> by <a href='https://readwritetools.com' title='Read Write Tools'>Read Write Tools</a> <time datetime=2018-10-24>Oct 24, 1028</time></address>
 
 
 
