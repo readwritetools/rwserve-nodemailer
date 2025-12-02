@@ -10,7 +10,7 @@
     "url": "https://github.com/readwritetools/rwserve-nodemailer.git"
   },
   "dependencies": {
-    "nodemailer": "^6.6.1",
+    "nodemailer": "^7.0.11",
     "rwserve-plugin-sdk": "^1.0.8"
   },
   "scripts": {
